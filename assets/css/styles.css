@@ -121,6 +121,12 @@ img {
   color: var(--text-color);
 }
 
+.nav__item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .nav__close {
   position: absolute;
   top: 1rem;
