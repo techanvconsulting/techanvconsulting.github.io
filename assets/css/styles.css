@@ -11,10 +11,10 @@
   --text-color: hsl(38, 8%, 8%);
   /*========== Font and typography ==========*/
   /*.5rem = 8px | 1rem = 16px ...*/
-  --body-font: 'Space Grotesk', sans-serif;
+  --body-font: "Space Grotesk", sans-serif;
   --biggest-font-size: 2.375rem;
-  --normal-font-size: .938rem;
-  --smaller-font-size: .75rem;
+  --normal-font-size: 0.938rem;
+  --smaller-font-size: 0.75rem;
 }
 
 /* Responsive typography */
@@ -22,7 +22,7 @@
   :root {
     --biggest-font-size: 5rem;
     --normal-font-size: 1rem;
-    --smaller-font-size: .813rem;
+    --smaller-font-size: 0.813rem;
   }
 }
 
@@ -81,7 +81,7 @@ img {
   align-items: center;
 }
 
-.nav__logo, 
+.nav__logo,
 .nav__toggle {
   color: var(--text-color);
   display: inline-flex;
@@ -105,8 +105,8 @@ img {
     width: 100%;
     padding: 5rem 0 4rem;
     border-radius: 0 0 1.5rem 1.5rem;
-    box-shadow: 0 2px 4px hsla(38, 4%, 15%, .15);
-    transition: .4s;
+    box-shadow: 0 2px 4px hsla(38, 4%, 15%, 0.15);
+    transition: 0.4s;
   }
 }
 
@@ -155,7 +155,7 @@ img {
 
 .home__title {
   font-size: var(--biggest-font-size);
-  margin: .75rem 0;
+  margin: 0.75rem 0;
 }
 
 .home__button {
@@ -163,13 +163,13 @@ img {
   display: inline-block;
   background-color: var(--text-color);
   color: #fff;
-  padding: .80rem 1.5rem;
+  padding: 0.8rem 1.5rem;
   border-radius: 3rem;
-  transition: .4s;
+  transition: 0.4s;
 }
 
 .home__button:hover {
-  box-shadow: 0 4px 12px hsla(38, 69%, 8%, .2);
+  box-shadow: 0 4px 12px hsla(38, 69%, 8%, 0.2);
 }
 
 .home__img img {
@@ -184,7 +184,7 @@ img {
 .home__shadow {
   width: 130px;
   height: 24px;
-  background-color: hsla(38, 21%, 19%, .16);
+  background-color: hsla(38, 21%, 19%, 0.16);
   margin: 0 auto;
   border-radius: 50%;
   filter: blur(7px);
@@ -194,7 +194,7 @@ img {
 .home__footer {
   display: flex;
   justify-content: center;
-  column-gap: .5rem;
+  column-gap: 0.5rem;
   font-size: var(--smaller-font-size);
   align-self: flex-end;
 }
@@ -214,7 +214,7 @@ img {
     transform: scale(1, 1);
   }
   100% {
-    transform: scale(.85, .85);
+    transform: scale(0.85, 0.85);
   }
 }
 
@@ -231,7 +231,7 @@ img {
   .nav {
     height: calc(var(--header-height) + 1.5rem);
   }
-  .nav__toggle, 
+  .nav__toggle,
   .nav__close {
     display: none;
   }
