@@ -466,3 +466,41 @@ img {
     zoom: 3.1;
   }
 }
+
+/*=============== PRETEXT ANIMATIONS ===============*/
+
+/* Line-clip: hides the line until the inner span slides up */
+.t-clip {
+  display: block;
+  overflow: hidden;
+  line-height: inherit;
+}
+
+/* The actual line — starts below clip, slides up */
+.t-inner {
+  display: block;
+  opacity: 0;
+  transform: translateY(108%);
+  animation: lineUp 0.78s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Fade + slide for subtitle / description / buttons / footer */
+.t-fade {
+  opacity: 0;
+  transform: translateY(18px);
+  animation: fadeUp 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes lineUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
