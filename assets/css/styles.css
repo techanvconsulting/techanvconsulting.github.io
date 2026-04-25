@@ -6,11 +6,9 @@
   --header-height: 3.5rem;
 
   /*========== Colors ==========*/
-  /*Color mode HSL(hue, saturation, lightness)*/
   --first-color: hsl(0, 0%, 92%);
   --text-color: hsl(38, 8%, 8%);
   /*========== Font and typography ==========*/
-  /*.5rem = 8px | 1rem = 16px ...*/
   --body-font: "Nunito", sans-serif;
   --biggest-font-size: 2.375rem;
   --normal-font-size: 0.938rem;
@@ -62,7 +60,7 @@ img {
 }
 
 .main {
-  overflow: hidden; /* For the animations ScrollReveal */
+  overflow: hidden;
 }
 
 /*=============== HEADER & NAV ===============*/
@@ -149,16 +147,20 @@ img {
 
 /*=============== HOME ===============*/
 .home {
-  background-color: var(--first-color);
-  padding: 9rem 0 2rem;
-  height: 100vh;
+  background-image: url('../img/hero-bg.avif');
+  background-size: cover;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  padding: 6rem 0 2rem;
+  min-height: 100svh;
   display: grid;
 }
 
 .home__container {
   display: grid;
-  align-content: center;
+  align-content: start;
   row-gap: 2.5rem;
+  padding-top: 2rem;
 }
 
 .home__data {
@@ -178,6 +180,7 @@ img {
   padding: 0.8rem 1.5rem;
   border-radius: 3rem;
   transition: 0.4s;
+  margin-right: 0.5rem;
 }
 
 .home__button:hover {
@@ -185,23 +188,9 @@ img {
   transform: scale(0.9);
 }
 
-.home__img img {
-  width: 230px;
-  animation: floaty 1.8s infinite alternate;
-}
-
-.home__img {
-  justify-self: center;
-}
-
+.home__img,
 .home__shadow {
-  width: 130px;
-  height: 24px;
-  background-color: hsla(38, 21%, 19%, 0.16);
-  margin: 0 auto;
-  border-radius: 50%;
-  filter: blur(7px);
-  animation: shadow 1.8s infinite alternate;
+  display: none;
 }
 
 .home__footer {
@@ -210,6 +199,7 @@ img {
   column-gap: 0.5rem;
   font-size: var(--smaller-font-size);
   align-self: flex-end;
+  padding-bottom: 1.5rem;
 }
 
 /* Animate ghost */
@@ -236,6 +226,15 @@ img {
 @media screen and (max-width: 320px) {
   .home {
     padding-top: 7rem;
+    /* shift right so robot arm stays visible on narrow screens */
+    background-position: 30% bottom;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .home {
+    /* hands visible at bottom on mobile */
+    background-position: 35% bottom;
   }
 }
 
@@ -257,19 +256,13 @@ img {
 /* For large devices */
 @media screen and (min-width: 1024px) {
   .home__container {
-    grid-template-columns: repeat(2, 1fr);
-    align-items: center;
-    column-gap: 2rem;
+    grid-template-columns: 1fr;
+    justify-items: start;
+    padding-top: 3rem;
   }
   .home__data {
     text-align: initial;
-  }
-  .home__img img {
-    width: 400px;
-  }
-  .home__shadow {
-    width: 250px;
-    height: 40px;
+    max-width: 560px;
   }
 }
 
