@@ -1,15 +1,12 @@
-user-agent: *
-disallow: /downloads/
+User-agent: *
+Allow: /
+Disallow: /downloads/
+Disallow: /uploads/
 
 User-agent: Googlebot
 Disallow: /nogooglebot/
 
-User-agent: *
-Allow: /
-user-agent: *
-disallow: /downloads/
+User-agent: magicsearchbot
+Disallow: /uploads/
 
-user-agent: magicsearchbot
-disallow: /uploads/
-
-Sitemap: https://www.techanv.com/sitemap.xml
+Sitemap: https://techanv.com/sitemap.xml
