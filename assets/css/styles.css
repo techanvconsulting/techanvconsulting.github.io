@@ -471,14 +471,15 @@ img {
 /* For large devices */
 @media screen and (min-width: 1024px) {
   .home__container {
+    align-self: start;
     max-width: none;
     margin-left: 4rem;
     margin-right: 4rem;
-    padding-top: 0;
+    padding-top: calc(var(--header-height) + 2.5rem);
   }
   .home__data {
     text-align: initial;
-    max-width: 58ch;
+    /* no max-width — title spans full container, one line */
   }
   .home__rule {
     margin-left: 0;
