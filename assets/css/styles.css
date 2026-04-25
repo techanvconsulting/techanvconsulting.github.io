@@ -10,16 +10,22 @@
   --text-color: hsl(38, 8%, 8%);
   /*========== Font and typography ==========*/
   --body-font: "Nunito", sans-serif;
-  --biggest-font-size: 2.375rem;
+  --biggest-font-size: 2.8rem;
   --normal-font-size: 0.938rem;
   --smaller-font-size: 0.75rem;
   --font-optical-sizing: auto;
 }
 
 /* Responsive typography */
+@media screen and (min-width: 768px) {
+  :root {
+    --biggest-font-size: 4.5rem;
+  }
+}
+
 @media screen and (min-width: 1024px) {
   :root {
-    --biggest-font-size: 5rem;
+    --biggest-font-size: 6.5rem;
     --normal-font-size: 1rem;
     --smaller-font-size: 0.813rem;
   }
@@ -195,30 +201,38 @@ img {
   display: inline-block;
   font-size: var(--smaller-font-size);
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: hsl(38, 30%, 40%);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
 }
 
 .home__title {
   font-size: var(--biggest-font-size);
-  margin: 0.5rem 0 1rem;
-  line-height: 1.1;
-  font-weight: 800;
+  margin: 0.25rem 0 1.5rem;
+  line-height: 1.05;
+  font-weight: 900;
+  letter-spacing: -0.02em;
 }
 
 .home__description {
-  line-height: 1.7;
+  line-height: 1.8;
   color: hsl(38, 8%, 30%);
-  max-width: 46ch;
+  font-size: 1.05rem;
+  max-width: 60ch;
+  margin: 0 auto;
+}
+
+.home__description--secondary {
+  margin-top: 1rem;
+  color: hsl(38, 8%, 38%);
 }
 
 .home__buttons {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
-  margin-top: 2rem;
+  margin-top: 2.5rem;
   justify-content: center;
 }
 
@@ -406,24 +420,18 @@ img {
 /* For large devices */
 @media screen and (min-width: 1024px) {
   .home__container {
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    column-gap: 3rem;
-    padding-top: 2rem;
-    margin-left: 3rem;
-    margin-right: auto;
+    grid-template-columns: 1fr;
+    padding-top: 1rem;
   }
   .home__data {
     text-align: initial;
   }
+  .home__description {
+    margin: 0;
+    max-width: 56ch;
+  }
   .home__buttons {
     justify-content: flex-start;
-  }
-  .home__description {
-    max-width: 44ch;
-  }
-  .home__services {
-    gap: 1.1rem;
   }
   .home {
     background-position: 44% bottom;
