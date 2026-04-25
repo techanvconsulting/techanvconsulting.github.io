@@ -149,18 +149,37 @@ img {
 .home {
   background-image: url('../img/hero-bg.avif');
   background-size: cover;
-  background-position: center bottom;
+  background-position: 42% bottom;
   background-repeat: no-repeat;
-  padding: 6rem 0 2rem;
+  /* warm cream tint over the white image */
+  background-color: hsl(35, 60%, 97%);
+  padding: 4rem 0 2rem;
   min-height: 100svh;
   display: grid;
+  position: relative;
+}
+
+.home::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    160deg,
+    hsla(35, 70%, 96%, 0.55) 0%,
+    hsla(30, 50%, 92%, 0.25) 50%,
+    transparent 100%
+  );
+  pointer-events: none;
+  z-index: 0;
 }
 
 .home__container {
   display: grid;
   align-content: start;
   row-gap: 2.5rem;
-  padding-top: 2rem;
+  padding-top: 1rem;
+  position: relative;
+  z-index: 1;
 }
 
 .home__data {
@@ -200,6 +219,8 @@ img {
   font-size: var(--smaller-font-size);
   align-self: flex-end;
   padding-bottom: 1.5rem;
+  position: relative;
+  z-index: 1;
 }
 
 /* Animate ghost */
@@ -225,16 +246,14 @@ img {
 /* For small devices */
 @media screen and (max-width: 320px) {
   .home {
-    padding-top: 7rem;
-    /* shift right so robot arm stays visible on narrow screens */
-    background-position: 30% bottom;
+    padding-top: 5rem;
+    background-position: 32% bottom;
   }
 }
 
 @media screen and (max-width: 767px) {
   .home {
-    /* hands visible at bottom on mobile */
-    background-position: 35% bottom;
+    background-position: 38% bottom;
   }
 }
 
@@ -258,11 +277,17 @@ img {
   .home__container {
     grid-template-columns: 1fr;
     justify-items: start;
-    padding-top: 3rem;
+    padding-top: 2rem;
+    /* left-pin: push text toward left edge, let bg image breathe right */
+    margin-left: 3rem;
+    margin-right: auto;
   }
   .home__data {
     text-align: initial;
-    max-width: 560px;
+    max-width: 520px;
+  }
+  .home {
+    background-position: 44% bottom;
   }
 }
 
@@ -270,6 +295,9 @@ img {
   .container {
     margin-left: auto;
     margin-right: auto;
+  }
+  .home__container {
+    margin-left: 4rem;
   }
 }
 
