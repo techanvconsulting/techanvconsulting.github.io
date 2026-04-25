@@ -121,14 +121,19 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 0.35rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  transition: opacity 0.2s;
 }
 
-.nav__item {
+.nav__icon {
+  font-size: 1.1rem;
 }
 
 .nav__link:hover {
-  border-bottom: 2px solid var(--text-color);
-  position: relative;
+  opacity: 0.65;
+  border-bottom: none;
 }
 
 .nav__close {
@@ -186,25 +191,68 @@ img {
   text-align: center;
 }
 
+.home__subtitle {
+  display: inline-block;
+  font-size: var(--smaller-font-size);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: hsl(38, 30%, 40%);
+  margin-bottom: 0.5rem;
+}
+
 .home__title {
   font-size: var(--biggest-font-size);
-  margin: 0.75rem 0;
+  margin: 0.5rem 0 1rem;
+  line-height: 1.1;
+  font-weight: 800;
+}
+
+.home__description {
+  line-height: 1.7;
+  color: hsl(38, 8%, 30%);
+  max-width: 46ch;
+}
+
+.home__buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 2rem;
+  justify-content: center;
 }
 
 .home__button {
-  margin-top: 2rem;
-  display: inline-block;
-  background-color: var(--text-color);
-  color: #fff;
-  padding: 0.8rem 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.75rem 1.6rem;
   border-radius: 3rem;
-  transition: 0.4s;
-  margin-right: 0.5rem;
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.home__button:hover {
-  box-shadow: 0 4px 12px hsla(38, 69%, 8%, 0.2);
-  transform: scale(0.9);
+.home__button--primary {
+  background-color: var(--text-color);
+  color: #fff;
+}
+
+.home__button--primary:hover {
+  box-shadow: 0 6px 18px hsla(38, 69%, 8%, 0.22);
+  transform: translateY(-2px);
+}
+
+.home__button--outline {
+  background-color: transparent;
+  color: var(--text-color);
+  border: 2px solid var(--text-color);
+}
+
+.home__button--outline:hover {
+  background-color: var(--text-color);
+  color: #fff;
+  transform: translateY(-2px);
 }
 
 .home__img,
@@ -214,13 +262,32 @@ img {
 
 .home__footer {
   display: flex;
+  align-items: center;
   justify-content: center;
-  column-gap: 0.5rem;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.8rem;
   font-size: var(--smaller-font-size);
   align-self: flex-end;
   padding-bottom: 1.5rem;
   position: relative;
   z-index: 1;
+}
+
+.home__footer-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  color: hsl(38, 8%, 25%);
+  font-weight: 600;
+  transition: opacity 0.2s;
+}
+
+.home__footer-link:hover {
+  opacity: 0.6;
+}
+
+.home__footer-sep {
+  color: hsl(38, 8%, 60%);
 }
 
 /* Animate ghost */
@@ -278,13 +345,18 @@ img {
     grid-template-columns: 1fr;
     justify-items: start;
     padding-top: 2rem;
-    /* left-pin: push text toward left edge, let bg image breathe right */
     margin-left: 3rem;
     margin-right: auto;
   }
   .home__data {
     text-align: initial;
     max-width: 520px;
+  }
+  .home__buttons {
+    justify-content: flex-start;
+  }
+  .home__description {
+    max-width: 44ch;
   }
   .home {
     background-position: 44% bottom;
