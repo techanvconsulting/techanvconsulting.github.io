@@ -130,16 +130,37 @@ img {
   gap: 0.35rem;
   font-weight: 600;
   letter-spacing: 0.02em;
-  transition: opacity 0.2s;
+  position: relative;
+  transition: opacity 0.25s;
 }
 
 .nav__icon {
   font-size: 1.1rem;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Underline draw on hover */
+.nav__link::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background: currentColor;
+  transition: width 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .nav__link:hover {
-  opacity: 0.65;
-  border-bottom: none;
+  opacity: 1;
+}
+
+.nav__link:hover::after {
+  width: 100%;
+}
+
+.nav__link:hover .nav__icon {
+  transform: translateY(-2px) scale(1.15);
 }
 
 .nav__close {
@@ -503,4 +524,111 @@ img {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/*=============== HOVER INTERACTIONS ===============*/
+
+/* Cursor spotlight — warm radial glow follows mouse */
+.home {
+  --cx: 50%;
+  --cy: 50%;
+}
+
+.home::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    520px circle at var(--cx) var(--cy),
+    hsla(35, 90%, 65%, 0.13),
+    transparent 68%
+  );
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.home:hover::after {
+  opacity: 1;
+}
+
+/* Home data block — subtle 3-D tilt (driven by JS) */
+.home__data {
+  transition: transform 0.18s ease-out;
+  will-change: transform;
+}
+
+/* Subtitle — letter-spacing breathes on hover */
+.home__subtitle {
+  cursor: default;
+  transition: letter-spacing 0.45s cubic-bezier(0.34, 1.56, 0.64, 1),
+              color 0.3s;
+}
+
+.home__subtitle:hover {
+  letter-spacing: 0.22em;
+  color: hsl(38, 45%, 32%);
+}
+
+/* Title words — float up individually on hover */
+.t-word {
+  display: inline-block;
+  transition: color      0.22s ease,
+              transform  0.3s  cubic-bezier(0.34, 1.56, 0.64, 1);
+  cursor: default;
+}
+
+.t-word:hover {
+  color: hsl(38, 50%, 28%);
+  transform: translateY(-5px);
+}
+
+/* Description — strong keywords get underline draw */
+.home__description strong {
+  position: relative;
+  transition: color 0.22s;
+  cursor: default;
+}
+
+.home__description strong::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 1.5px;
+  background: hsl(38, 55%, 32%);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.home__description strong:hover {
+  color: hsl(38, 55%, 22%);
+}
+
+.home__description strong:hover::after {
+  transform: scaleX(1);
+}
+
+/* Buttons — magnetic handled in JS, spring back via CSS transition */
+.home__button {
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.25s,
+              background-color 0.22s,
+              color 0.22s;
+}
+
+/* Footer links — lift on hover */
+.home__footer-link {
+  transition: opacity  0.22s,
+              transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+              color 0.22s;
+}
+
+.home__footer-link:hover {
+  opacity: 0.75;
+  transform: translateY(-3px);
+  color: hsl(38, 50%, 25%);
 }
