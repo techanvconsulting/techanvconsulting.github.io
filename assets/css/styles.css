@@ -82,18 +82,32 @@ img {
 .nav {
   height: var(--header-height);
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
 }
 
-.nav__logo,
 .nav__toggle {
   color: var(--text-color);
   display: inline-flex;
 }
 
-.nav__logo {
-  font-weight: 700;
+/*── Fixed bottom-right logo watermark ──*/
+.site-logo {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.75rem;
+  z-index: 90;
+  opacity: 0.88;
+  transition: opacity 0.2s, transform 0.2s;
+}
+.site-logo:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+.site-logo img {
+  display: block;
+  width: 120px;
+  filter: drop-shadow(0 2px 6px hsla(0,0%,0%,0.10));
 }
 
 .nav__toggle {
