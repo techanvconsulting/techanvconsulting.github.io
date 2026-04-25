@@ -443,13 +443,22 @@ img {
   .home__container {
     grid-template-columns: 1fr;
     padding-top: 1rem;
+    /* expand to near full viewport — override max-width: 1024px */
+    max-width: none;
+    margin-left: 3rem;
+    margin-right: 3rem;
   }
   .home__data {
     text-align: initial;
   }
+  .home__desc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 3.5rem;
+  }
   .home__description {
     margin: 0;
-    max-width: 56ch;
+    max-width: none;
   }
   .home__buttons {
     justify-content: flex-start;
@@ -465,7 +474,9 @@ img {
     margin-right: auto;
   }
   .home__container {
-    margin-left: 4rem;
+    margin-left: 3rem;
+    margin-right: 3rem;
+    max-width: none;
   }
 }
 
