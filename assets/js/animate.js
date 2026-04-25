@@ -142,23 +142,37 @@ function scheduleReveal(el, delayMs) {
 document.addEventListener('DOMContentLoaded', async () => {
   await document.fonts.ready
 
-  const title    = document.querySelector('.home__title')
-  const subtitle = document.querySelector('.home__subtitle')
-  const descs    = document.querySelectorAll('.home__description')
-  const buttons  = document.querySelector('.home__buttons')
-  const footer   = document.querySelector('.home__footer')
+  const title   = document.querySelector('.home__title')
+  const rule    = document.querySelector('.home__rule')
+  const descs   = document.querySelectorAll('.home__description')
+  const stats   = document.querySelectorAll('.home__stat')
+  const buttons = document.querySelector('.home__buttons')
+  const footer  = document.querySelector('.home__footer')
 
-  scheduleReveal(subtitle, 0)
-
+  // 1. Title — pretext line-by-line clip reveal
   if (title) {
     title.style.visibility = 'hidden'
-    await revealTitle(title, 180)
+    await revealTitle(title, 80)
     title.style.visibility = ''
   }
 
-  descs.forEach((el, i) => scheduleReveal(el, 520 + i * 140))
-  scheduleReveal(buttons, 820)
-  scheduleReveal(footer, 960)
+  // 2. Accent rule
+  scheduleReveal(rule, 440)
+
+  // 3. Descriptions
+  descs.forEach((el, i) => scheduleReveal(el, 540 + i * 120))
+
+  // 4. Stats chips stagger individually
+  stats.forEach((el, i) => {
+    el.classList.add('t-fade')
+    el.style.animationDelay = `${720 + i * 55}ms`
+  })
+
+  // 5. Buttons
+  scheduleReveal(buttons, 1000)
+
+  // 6. Footer
+  scheduleReveal(footer, 1100)
 
   initSpotlight()
   initMagnetic('.home__button')
